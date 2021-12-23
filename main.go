@@ -52,13 +52,6 @@ func disableSeLinux(machineName string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	cmd = exec.Command("podman", "machine", "ssh", machineName, "sudo", "sestatus")
-	cmd.Stdout = os.Stderr
-	cmd.Stderr = os.Stderr
-	err = cmd.Run()
-	if err != nil {
-		log.Fatal(err)
-	}
 }
 
 func findPodmanConnection(connections []PodmanConnection, machineName string) PodmanConnection {
